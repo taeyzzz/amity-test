@@ -13,4 +13,6 @@ const equalShiftsAmount = (str) => {
 }
 
 const result = equalShiftsAmount(mockString)
+console.log("Result count");
+console.log("///////////");
 console.log(result);

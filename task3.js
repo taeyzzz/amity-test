@@ -68,4 +68,6 @@ const sumLinkedList = (l1, l2) => {
 }
 
 const result = sumLinkedList(n1, n4)
+console.log("Result");
+console.log("///////////");
 console.log(result);

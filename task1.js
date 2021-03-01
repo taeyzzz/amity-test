@@ -37,9 +37,15 @@ const inputDataTask1 = {
 };
 
 const normalizeReceivedData = ({ users, messages } = { users: [], messages: []}) => {
+  const userObj = users.reduce((prev, current) => {
+    return {
+      ...prev,
+      [current.id]: current
+    }
+  }, {})
   return messages.map(messageData => {
-    const senderData = users.find(user => user.id === messageData.userId)
-    const receiverData = users.find(user => user.id === messageData.receiverId)
+    const senderData = userObj[messageData.userId]
+    const receiverData = userObj[messageData.receiverId]
     return {
       messageText: messageData.text,
       userFromName: senderData.name,
@@ -49,6 +55,6 @@ const normalizeReceivedData = ({ users, messages } = { users: [], messages: []})
 }
 
 const result = normalizeReceivedData(inputDataTask1)
-console.log("///////////");
 console.log("Task1");
+console.log("///////////");
 console.log(result);
